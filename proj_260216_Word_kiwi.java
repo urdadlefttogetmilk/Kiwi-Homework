@@ -1,25 +1,23 @@
 import static java.lang.System.*;
 
-public class Word {
-   private static String vowels = "AEIOUaeiou";   // shared by all Word objects
-   private String word;                          // instance variable
+class Word {
 
-   // constructor
+   private static String vowels = "AEIOUaeiou";
+   private String word;
+
    public Word(String w) {
       word = w;
    }
 
-   // set method
    public void setWord(String w) {
       word = w;
    }
 
-   // returns number of vowels in the word
    public int getNumVowels() {
       int count = 0;
 
-      for (int i = 0; i < word.length(); i++) {
-         if (vowels.indexOf(word.charAt(i)) != -1) {
+      for(int i = 0; i < word.length(); i++) {
+         if(vowels.indexOf(word.charAt(i)) != -1) {
             count++;
          }
       }
@@ -27,13 +25,32 @@ public class Word {
       return count;
    }
 
-   // returns length of the word
    public int getLength() {
       return word.length();
    }
 
-   // returns the word itself
    public String toString() {
       return word;
+   }
+}
+
+public class Main {
+
+   public static void main(String[] args) {
+
+      Word one = new Word("chicken");
+      out.println(one);
+      out.println("num vowels == " + one.getNumVowels());
+      out.println("num chars == " + one.getLength());
+
+      one.setWord("alligator");
+      out.println("\n\n" + one);
+      out.println("num vowels == " + one.getNumVowels());
+      out.println("num chars == " + one.getLength());
+
+      one.setWord("elephant");
+      out.println("\n\n" + one);
+      out.println("num vowels == " + one.getNumVowels());
+      out.println("num chars == " + one.getLength());
    }
 }
